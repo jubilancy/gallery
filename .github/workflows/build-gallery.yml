@@ -12,11 +12,73 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build index.html
         run: |
-          echo "<!DOCTYPE html><html><head><style>body{background:#000;color:#fff;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:20px;}img{width:100%;height:200px;object-fit:cover;border-radius:5px;}</style></head><body>" > index.html
+          echo "<!DOCTYPE html>
+          <html lang='en'>
+          <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Digital Shoebox</title>
+            <style>
+              :root { --gap: 16px; --size: 250px; }
+              body { 
+                background-color: #0f0f0f; 
+                color: #fafafa; 
+                font-family: system-ui, -apple-system, sans-serif; 
+                margin: 0; 
+                padding: 40px var(--gap); 
+              }
+              header {
+                max-width: 1200px;
+                margin: 0 auto 20px auto;
+                padding: 0 5px;
+              }
+              h1 { font-weight: 400; font-size: 1.5rem; letter-spacing: -0.5px; opacity: 0.8; }
+              .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(var(--size), 1fr));
+                gap: var(--gap);
+                max-width: 1200px;
+                margin: 0 auto;
+              }
+              .card {
+                background: #1a1a1a;
+                border-radius: 12px;
+                overflow: hidden;
+                aspect-ratio: 1 / 1;
+                border: 1px solid #2a2a2a;
+                transition: all 0.2s ease-in-out;
+              }
+              .card:hover { 
+                transform: translateY(-4px); 
+                border-color: #444; 
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+              }
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+              }
+              @media (max-width: 600px) {
+                :root { --size: 150px; --gap: 8px; }
+              }
+            </style>
+          </head>
+          <body>
+            <header>
+              <h1>Assets</h1>
+            </header>
+            <div class='gallery'>" > index.html
+          
+          # Loop through assets and append to HTML
           for img in assets/*; do
-            echo "<img src='$img' loading='lazy'>" >> index.html
+            if [[ "$img" == *"."* ]]; then
+              echo "<div class='card'><img src='$img' loading='lazy' alt='Asset'></div>" >> index.html
+            fi
           done
-          echo "</body></html>" >> index.html
+          
+          echo "</div></body></html>" >> index.html
+          
       - name: Commit and push
         run: |
           git config --global user.name "Gallery Bot"
