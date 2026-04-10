@@ -1,0 +1,26 @@
+name: Generate Gallery index
+on: 
+  push:
+    paths:
+      - 'assets/**'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build index.html
+        run: |
+          echo "<!DOCTYPE html><html><head><style>body{background:#000;color:#fff;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:20px;}img{width:100%;height:200px;object-fit:cover;border-radius:5px;}</style></head><body>" > index.html
+          for img in assets/*; do
+            echo "<img src='$img' loading='lazy'>" >> index.html
+          done
+          echo "</body></html>" >> index.html
+      - name: Commit and push
+        run: |
+          git config --global user.name "Gallery Bot"
+          git config --global user.email "bot@github.com"
+          git add index.html
+          git commit -m "Auto-update gallery index" || exit 0
+          git push
