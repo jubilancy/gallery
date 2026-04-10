@@ -1,16 +1,127 @@
-<!DOCTYPE html><html><head><style>body{background:#000;color:#fff;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:20px;}img{width:100%;height:200px;object-fit:cover;border-radius:5px;}</style></head><body>
-<img src='assets/artist-palette-svgrepo-com.svg' loading='lazy'>
-<img src='assets/blog-svgrepo-com.svg' loading='lazy'>
-<img src='assets/chatgpt_logo_black_circle_gpt_openai_icon_264980.svg' loading='lazy'>
-<img src='assets/color-palette-paint-svgrepo-com.svg' loading='lazy'>
-<img src='assets/color-palette-svgrepo-com (1).svg' loading='lazy'>
-<img src='assets/color-palette-svgrepo-com.svg' loading='lazy'>
-<img src='assets/flowers_2425916.png' loading='lazy'>
-<img src='assets/gallery365-svgrepo-com.svg' loading='lazy'>
-<img src='assets/gui-palette-svgrepo-com.svg' loading='lazy'>
-<img src='assets/icon-icons.svg' loading='lazy'>
-<img src='assets/location-color-bookmark-svgrepo-com.svg' loading='lazy'>
-<img src='assets/paint-palette-svgrepo-com.svg' loading='lazy'>
-<img src='assets/pantone-color-palette-svgrepo-com.svg' loading='lazy'>
-<img src='assets/sitemap-svgrepo-com.svg' loading='lazy'>
-</body></html>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Digital Shoebox</title>
+  <style>
+    :root { --gap: 16px; --size: 250px; }
+    body { 
+      background-color: #0f0f0f; 
+      color: #fafafa; 
+      font-family: system-ui, -apple-system, sans-serif; 
+      margin: 0; 
+      padding: 40px var(--gap); 
+    }
+    header {
+      max-width: 1200px;
+      margin: 0 auto 20px auto;
+      padding: 0 5px;
+    }
+    h1 { font-weight: 400; font-size: 1.5rem; letter-spacing: -0.5px; opacity: 0.8; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(var(--size), 1fr));
+      gap: var(--gap);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      border: 1px solid #2a2a2a;
+      transition: all 0.2s ease-in-out;
+    }
+    .card:hover { 
+      transform: translateY(-4px); 
+      border-color: #444; 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      :root { --size: 150px; --gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Assets</h1>
+  </header>
+  <div class='gallery'>
+<div class='card'><img src='assets/1f3a0.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/6375f54d-01a5-4381-b218-ac3bce0e218b_pixelied-two.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/CS_Moon_13.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-arrows-back-left-move-next-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-back-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-cloud-upload-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-direction-forward-move-next-previous-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-ecology-3-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-ecology-4-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-left-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-right-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/arrow-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/artist-palette-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/blog-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/books-book-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/books-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/browser-website-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/calendar-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/campfire-left-2-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/chatgpt_logo_black_circle_gpt_openai_icon_264980.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/cloud-computing-sync-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/color-palette-paint-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/color-palette-svgrepo-com (1).svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/color-palette-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/contacts-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/cookies-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/delete-stop-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/download-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/file-cabinet-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/flower_leaf_spring_highlight_garden_nature_ecology_environment_plants_herb_flora_bloom_blossom_petal_icon_153827.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/flowers_2425916.png' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/gallery365-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/gui-palette-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/home-house-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/home-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/html-website-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/icon-icons.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/loading-reload-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/location-color-bookmark-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/log-in-double-arrow-2-svgrepo-com (1).svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/log-in-double-arrow-2-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/log-in-double-arrow-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/love-letter-hearts-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/mediawiki-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/notes-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/open-mailbox-with-raised-flag-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/paint-palette-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/palm-tree-beach-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/pantone-color-palette-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/recycle-refresh-reload-repeat-rotate-sync-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/refresh-reload-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/refresh-right-square-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/refresh-round-svgrepo-com (1).svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/refresh-round-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/refresh-svgrepo-com (1).svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/refresh-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/reload-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/rss-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/search-svgrepo-com (1).svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/search-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/settings-gear-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/share-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/sign-in-double-arrow-2-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/sign-in-double-arrow-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/sitemap-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/stamp-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/web-search-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/webpositive-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+<div class='card'><img src='assets/wiki-unblocked-svgrepo-com.svg' loading='lazy' alt='Asset'></div>
+</div></body></html>
