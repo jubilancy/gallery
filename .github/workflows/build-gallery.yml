@@ -1,8 +1,9 @@
 name: Generate Gallery index
-on: 
+on:
   push:
     paths:
       - 'assets/**'
+      - '.github/workflows/**'
 permissions:
   contents: write
 jobs:
@@ -20,7 +21,7 @@ jobs:
             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
             <title>Digital Shoebox</title>
             <style>
-              :root { --gap: 12px; --size: 250px; }
+              :root { --gap: 12px; --size: 200px; }
               body { background-color: #0f0f0f; color: #fafafa; font-family: system-ui, sans-serif; margin: 0; padding: 40px var(--gap); }
               header { max-width: 1200px; margin: 0 auto 20px auto; }
               h1 { font-weight: 400; font-size: 1.2rem; opacity: 0.5; }
@@ -39,32 +40,49 @@ jobs:
 
           for img in assets/*; do
             if [[ "$img" == *"."* ]]; then
-              echo "<div class='card' onclick='copyLink(\"$img\")'><img src='$img' loading='lazy' alt='Asset'></div>" >> index.html
+              echo "<div class='card' onclick='copyImage(this)'><img src='$img' loading='lazy' alt='Asset'></div>" >> index.html
             fi
           done
 
           cat << 'EOF' >> index.html
             </div>
-            <div id='toast'>Link copied!</div>
+            <div id='toast'>Image copied!</div>
             <script>
-              function copyLink(path) {
-                const url = window.location.origin + window.location.pathname.replace('index.html', '') + path;
-                navigator.clipboard.writeText(url).then(() => {
-                  const toast = document.getElementById('toast');
-                  toast.style.display = 'block';
-                  setTimeout(() => { toast.style.display = 'none'; }, 2000);
-                }).catch(err => {
-                  console.error('Failed to copy: ', err);
-                });
+              async function copyImage(element) {
+                const img = element.querySelector('img');
+                try {
+                  const data = await fetch(img.src);
+                  const blob = await data.blob();
+                  
+                  // ClipboardItem requires specific MIME types
+                  // Converting SVGs to Blobs for clipboard can be finicky in some browsers
+                  await navigator.clipboard.write([
+                    new ClipboardItem({
+                      [blob.type]: blob
+                    })
+                  ]);
+                  
+                  showToast();
+                } catch (err) {
+                  console.error('Failed to copy image: ', err);
+                  // Fallback: Copy URL if image data fails
+                  navigator.clipboard.writeText(img.src);
+                }
+              }
+
+              function showToast() {
+                const toast = document.getElementById('toast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2000);
               }
             </script>
           </body></html>
           EOF
-          
+
       - name: Commit and push
         run: |
-          git config --global user.name "Gallery Bot"
-          git config --global user.email "bot@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Fix gallery layout and copy script" || exit 0
+          git commit -m "Change to copy image data instead of URL" || exit 0
           git push
